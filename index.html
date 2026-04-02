@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">
+<title>Hélène Lecomte – UX Portfolio</title>
+</head>
+
+<body>
+
+<!-- TOP SCROLLING TEXT -->
+<div class="banner">
+  <div class="banner-content">
+    UX DESIGN STUDENT - LOOKING FOR AN INTERNSHIP - UX DESIGN STUDENT - LOOKING FOR AN INTERNSHIP - UX DESIGN STUDENT - LOOKING FOR AN INTERNSHIP - UX DESIGN STUDENT - LOOKING FOR AN INTERNSHIP - UX DESIGN STUDENT - LOOKING FOR AN INTERNSHIP - UX DESIGN STUDENT - LOOKING FOR AN INTERNSHIP - UX DESIGN STUDENT - LOOKING FOR AN INTERNSHIP - UX DESIGN STUDENT - LOOKING FOR AN INTERNSHIP - UX DESIGN STUDENT - LOOKING FOR AN INTERNSHIP -
+  </div>
+</div>
+
+<div class="container">
+    <div class="hero">
+      <div class="decor-layer">
+  <div class="item box-ticket" style="left: 2%; top: 40%;">
+    <img src="images accueil/wicked.png" alt="Wicked Ticket">
+  </div>
+  <div class="item box-violin" style="left: 8%; top: 55%;">
+    <img src="images accueil/violon.png" alt="Violin">
+  </div>
+  <div class="item box-flower" style="left: 3%; top: 75%;">
+    <img src="images accueil/orchid.png" alt="Flower">
+  </div>
+
+  <div class="item box-disco" style="right: 5%; top: 10%;">
+    <img src="images accueil/disco.png" alt="Disco Ball">
+  </div>
+  <div class="item box-berry" style="right: 15%; top: 25%;">
+    <img src="images accueil/framboise.png" alt="Raspberry">
+  </div>
+  <div class="item box-headphone" style="right: 8%; top: 30%;">
+    <img src="images accueil/casque.png" alt="Headphones">
+  </div>
+</div>
+        <div class="title"><span class="alt">H</span><span>E</span><span>L</span><span>E</span><span>N</span><span>E</span><span>_</span><span>L</span><span>E</span><span>C</span><span class="alt">O</span><span>M</span><span>T</span><span>E</span></div>
+  <script>
+const letters = document.querySelectorAll(".title span");
+const title = document.querySelector(".title");
+
+let cursor;
+
+function startTyping() {
+
+  let index = 0;
+
+  // reset lettres
+  letters.forEach(letter => {
+    letter.style.opacity = "0";
+  });
+
+  // créer curseur
+  cursor = document.createElement("span");
+  cursor.textContent = "_";
+  cursor.classList.add("cursor");
+
+  title.insertBefore(cursor, letters[0]);
+
+  function typeEffect() {
+
+    if (index < letters.length) {
+
+      letters[index].style.opacity = "1";
+      title.insertBefore(cursor, letters[index].nextSibling);
+
+      index++;
+      setTimeout(typeEffect, 100);
+
+    } else {
+
+      // pause à la fin avant reset
+      setTimeout(() => {
+        cursor.remove();
+        setTimeout(startTyping, 5000); // délai avant que ça recommence
+      }, 10);
+    }
+  }
+
+  typeEffect();
+}
+
+startTyping();
+</script>
+
+
+  <div class="subtitle">2026 - <b>UX DESIGN PORTFOLIO</b></div>
+    </div>
+
+  
+
+  <div class="projects">
+    <div class="column">
+      <a href="javascript:void(0)" onclick="openProject('Maestro')" class="maestro">Maestro</a>
+      <a href="javascript:void(0)" onclick="openProject('Landmark')" class="landmark">Landmark</a>
+      <a href="javascript:void(0)" onclick="openProject('Dogliday')" class="dogliday">Dogliday</a>
+    </div>
+
+    <div class="column">
+      <a href="javascript:void(0)" onclick="openProject('NIX')" class="nix">NIX</a>
+      <a href="javascript:void(0)" onclick="openProject('KissMarryKill')" class="kmk">KissMarryKill</a>
+    </div>
+  </div>
+
+</div>
+
+<section id="about" class="about-section">
+    <div class="about-content">
+        <div class="about-text">
+            <h1>About me</h1>
+            <p>
+                I am a <b>UX Design student</b> with a particular focus on <b>technical environments</b> and <b>complex systems</b>. My main goal is to <b>give time back to the user</b>. By analyzing real-world usage and production constraints, I structure information and user flows to make them <b>clearer, smoother, and more efficient</b>. <br><br>
+
+                For the user, this means <b>less hesitation</b>, fewer errors, and a <b>reduced cognitive load</b>. <br>
+                For the company, it leads to better tool adoption, <b>optimized processes</b>, and decisions backed by a deep understanding of field needs. <br><br>
+
+                I am currently looking for an <b>internship</b> to bring this rigor to a team, learn alongside multidisciplinary profiles, and contribute to projects where <b>every interaction has a concrete impact</b>.
+            </p>
+        </div>
+        <div class="about-image-container">
+            <img src="portrait.png" alt="Hélène Lecomte" class="about-portrait">
+        </div>
+    </div>
+    
+</section>
+
+<div class="contact-actions">
+    <a href="mailto:votre@email.com" class="btn-contact">
+        <span class="btn-label">helenelecomte14@gmail.com</span>
+    </a>
+    <a href="https://linkedin.com/in/votreprofil" target="_blank" class="btn-contact">
+        <span class="btn-label">LINKEDIN.LINK</span>
+    </a>
+    <a href="votre-cv.pdf" target="_blank" class="btn-contact btn-alt">
+        <span class="btn-label">VIEW_CV.PDF</span>
+    </a>
+</div>
+
+<script src="script.js"></script>
+
+<div id="project-overlay" class="overlay">
+    <div class="modal">
+        <div class="modal-header">
+            <span id="modal-system-title">PROJECT_DETAILS.EXE</span>
+            <button class="close-btn" onclick="closeProject()">×</button>
+        </div>
+
+        <div class="modal-content">
+            <div class="modal-intro">
+                <h2 id="inner-title">Project name</h2>
+                <h3 id="inner-subtitle">Subtitle</h3>
+            </div>
+
+            <div id="modal-tags" class="tag-container"></div>
+            <p id="modal-desc">Description</p>
+            <div class="modal-visual"><div class="image"> <img id="modal-img" src="" alt="Preview"></div></div>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <span class="label">FORMAT</span>
+                    <span id="modal-group" class="value">-</span>
+                </div>
+                <div class="info-box">
+                    <span class="label">DURATION</span>
+                    <span id="modal-duration" class="value">-</span>
+                </div>
+                <div class="info-box">
+                    <span class="label">TOOLS</span>
+                    <span id="modal-tools" class="value">-</span>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="modal-text">
+                    <a href="#" id="modal-link" class="view-more-btn">SEE FULL CASE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

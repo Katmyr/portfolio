@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">
+    <title>Hélène Lecomte – KissMarryKill</title>
+</head>
+<body>
+
+<header class="project-header">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <span class="logo-main">HELENE LECOMTE</span>
+      <span class="logo-sub">2026 PORTFOLIO</span>
+    </a>
+    <nav class="nav-links">
+  <div class="dropdown">
+    <a href="#">PROJECTS <span class="arrow">∨</span></a>
+    <div class="dropdown-menu">
+      <a href="landmark.html">Landmark</a>
+      <a href="dogliday.html">Dogliday</a>
+      <a href="kmk.html" class="active-project">KissMarryKill</a>
+      <a href="nix.html">NIX</a>
+      <a href="maestro.html">Maestro</a>
+    </div>
+  </div>
+  <a href="#about">ABOUT ME</a>
+  <a href="javascript:void(0)" class="contact-btn" onclick="openContact()">CONTACT ME</a>
+</nav>
+
+<!-- Overlay Contact -->
+<div class="contact-overlay" id="contactOverlay" onclick="closeContact(event)">
+  <div class="contact-modal">
+    <button class="contact-close" onclick="closeContact()">✕</button>
+    <h2>Let's connect ;)</h2>
+    <p class="contact-sub">Hélène Lecomte — UX/UI Designer</p>
+    <div class="contact-links">
+      <a href="mailto:helenelecomte14@gmail.com" class="contact-link">
+        <span class="contact-icon">✉</span>
+        <span>helenelecomte14@gmail.com</span>
+      </a>
+      <a href="https://linkedin.com/in/tonprofil" target="_blank" class="contact-link">
+        <span class="contact-icon">in</span>
+        <span>LinkedIn</span>
+      </a>
+    </div>
+  </div>
+</div>
+</header>
+
+<div class="project-title" style="background-image: url('images/kmk-preview.png');">
+    <h1 style="color: white;">KissMarryKill</h1>
+    <div class="spec-grid">
+        <div class="spec-box2">
+            <span class="spec-label2">CONTEXT</span>
+            <p>Launched in 2021, KMK fills a gap in digital entertainment by transforming the popular Kiss, Marry, Kill YouTube trend into a fully interactive web platform. Originally limited to passive video content, the game now offers an autonomous and scalable experience for a growing community.</p>
+        </div>
+        <div class="spec-box2">
+            <span class="spec-label2">GOALS</span>
+            <p>- Gamification: Implement ranking systems and persistent voting memory.<br>
+               - User-Centric Iteration: Deploy new features based on community feedback.<br>
+               - Technical Literacy: Master front-end logic to bridge the gap between UX Design and development teams in professional environments.</p>
+        </div>
+        <div class="spec-box2">
+            <span class="spec-label2">DELIVERABLES</span>
+            <p>- Live Web Platform: A fully functional, deployed web application.<br>
+               - Product Roadmap: Strategy for upcoming multiplayer modes and social features.<br>
+               - UI/UX Design: Modular interface system designed for fast-paced interactions.<br>
+               - Custom Database: Logic for real-time global statistics and user rankings.</p>
+        </div>
+    </div>
+</div>
+
+<div class="project-page">
+    <main class="project-container">
+        <section id="context" class="project-section">
+    <div class="text-block">
+        <h2>Why I built this</h2>
+        <p>Like millions of others, I used to watch Kiss, Marry or Kill videos on YouTube. But there was a catch: you could only watch, never actually play. In 2021, I decided to stop being a spectator and started coding my own version to make the experience interactive and infinite.</p>
+        <p>What began as a simple coding experiment quickly became my personal digital laboratory. It is where I test new ideas, listen to user suggestions, and play with gamification tools. Beyond the fun, this project is my way of staying sharp technically, ensuring I can speak the same language as the developers I work with every day.</p>
+    </div>
+</section>
+<br>
+<div class="text-block">
+                <h2>UX/UI Redesign</h2>
+                <p>Developing the product myself allowed me to iterate in real-time. The architecture was designed to be modular.</p>
+            </div>
+<div class="project-comparison-wrapper">
+                <div class="comparison-container">
+                    <div class="comparison-slider">
+                        <img src="images/kmk-home2.png" alt="After" class="image-after">
+                        <div class="image-before-wrapper">
+                            <img src="images/kmk-home1.png" alt="Before" class="image-before">
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="slider-input">
+                        <div class="slider-line"></div>
+                        <div class="slider-button"></div>
+                    </div>
+                </div>
+                <div class="comparison-text">
+                    <h3>Interactive Home Page</h3>
+                    <p>Revamped layout with regularly updated categories and a helping modal to guide new players through the gaming mechanics.</p>
+                </div>
+            </div>
+
+            <div class="project-comparison-wrapper">
+                <div class="comparison-container">
+                    <div class="comparison-slider">
+                        <img src="images/kmk-cat2.png" alt="After" class="image-after">
+                        <div class="image-before-wrapper">
+                            <img src="images/kmk-cat1.png" alt="Before" class="image-before">
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="slider-input">
+                        <div class="slider-line"></div>
+                        <div class="slider-button"></div>
+                    </div>
+                </div>
+                <div class="comparison-text">
+                    <h3>Dynamic Trio Selection</h3>
+                    <p>Randomized selection from a database of 300+ characters. Votes are stored in local storage to maintain persistence without the need for a complex backend, allowing users to track their history.</p>
+                </div>
+            </div>
+
+        <div class="project-comparison-wrapper">
+    <div class="comparison-container">
+        <div class="comparison-slider">
+            <img src="images/kmk-podium.png" alt="After Redesign" class="image-after">
+        </div>
+    </div>
+    <div>
+        <h3>Podium</h3>
+        <p>Display the three most chosen characters for each option (Kiss, Marry, Kill).
+
+Currently, it works by storing user votes locally (localStorage), which means the data disappears when the browser cache is cleared.</p>
+    </div>
+    </div>
+</section>
+        </section>
+
+        <section class="project-section">
+            <div class="text-block">
+                <h2>Tech Expertise & Product Ownership</h2>
+                <p>Developing the product myself allowed me to iterate in real-time. The architecture was designed to be modular.</p>
+            </div>
+            <section class="full-width-gallery">
+    <figure class="gallery-item">
+        <img src="images/kmk-html.png" alt="modeling">
+        <figcaption>HTML</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="images/kmk-css.png" alt="materials">
+        <figcaption>CSS</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="images/kmk-js.png" alt="rendering">
+        <figcaption>JavaScript</figcaption>
+    </figure>
+</section>
+        </section>
+
+        <section id="roadmap" class="project-section">
+    <div class="text-block">
+        <h2>Future Features</h2>
+        <p>The next phase of KMK focuses on expanding social interaction and deepening user engagement. Based on current community feedback, the development roadmap includes a real-time multiplayer mode to transform the individual experience into a shared social event. I am also working on advanced filtering systems to allow users to create and share their own custom decks, further decentralizing content creation.</p>
+        <p>From a technical standpoint, this evolution serves as a playground for testing WebSockets for instantaneous data synchronization and exploring more complex database architectures. This continuous iteration ensures the platform stays aligned with modern gaming standards while reducing cognitive friction during high-speed social play.</p>
+    </div>
+
+    <div class="spec-grid">
+                <div class="spec-box">
+                    <span class="spec-label">MULTIPLAYER</span>
+                    <p>Local multiplayer mode, linked to the players' phone which could be used as remotes.</p>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">GLOBAL RANKING</span>
+                    <p>A podium to show all users' votes.</p>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">OVERALL CATEGORY</span>
+                    <p>A global category mixing all the others.</p>
+                </div>
+            </div>
+</section>
+
+        <div class="footer-nav">
+            <a href="dogliday.html" class="contact-btn">NEXT PROJECT</a>
+        </div>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

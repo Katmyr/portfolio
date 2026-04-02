@@ -1,0 +1,1082 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
+}
+
+body {
+  background: #ffffff;
+  color: #2f3bbd;
+  overflow-x: hidden;
+}
+
+p {
+  color: #1f1f1f;
+}
+
+.landmark, .dogliday, .nix, .maestro, .kmk {
+  font-weight: 700;
+}
+
+/* 1. Largeur de la barre */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* 2. Le fond (Track) : On utilise un motif pointillé pour le côté rétro */
+::-webkit-scrollbar-track {
+  background-color: #ffffff;
+  background-size: 2px 2px;
+  border: 2px solid;
+  border-color: #2f3bbd55;
+}
+
+/* 3. Le curseur (Handle) : L'effet relief est ici ! */
+::-webkit-scrollbar-thumb {
+  background: #2f3bbd;
+  /* Effet 3D : clair en haut/gauche, sombre en bas/droite */
+}
+
+::-webkit-scrollbar-thumb:active {
+  /* Inversion du relief quand on clique */
+  background-color: #6c74ca;
+}
+
+/* ===== TOP SCROLLING BANNER ===== */
+
+.banner {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  background: transparent;
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+.banner-content {
+  display: inline-block;
+  animation: scroll 15s linear infinite;
+  font-weight: bold;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ===== MAIN LAYOUT ===== */
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
+  text-align: center;
+  position: relative;
+}
+
+.item {
+  position: absolute;
+  z-index: 1;
+  padding: 10px; /* Espace entre l'image et le cadre bleu */
+  border: 1px solid #4855e0; /* La ligne bleue du cadre */
+  display: inline-block;
+}
+
+.item img {
+  display: block;
+  max-width: 150px; /* Ajuste la taille globale ici */
+  height: auto;
+  /* Optionnel : appliquer un filtre bleu pour coller à ton design */
+  filter: contrast(1.2) sepia(100%) hue-rotate(190deg) saturate(2);
+}
+
+/* Les petits carrés aux 4 coins */
+.item::before, .item::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border: 1px solid #4855e0;
+}
+
+/* Placement des coins (Top-Left et Bottom-Right) */
+.item::before { top: -4px; left: -4px; box-shadow: calc(100% + 2px) 0 0 0 transparent;}
+.item::after { bottom: -4px; right: -4px; }
+
+/* Ajout manuel des 2 autres coins via des div si tu veux la perfection, 
+   mais voici déjà les rotations pour l'effet déstructuré */
+.box-ticket { transform: rotate(-10deg); }
+.box-violin { transform: rotate(5deg);}
+.box-flower { transform: rotate(-5deg); }
+.box-disco  { transform: rotate(10deg);}
+.box-berry  { transform: rotate(-15deg);}
+.box-headphone { transform: rotate(15deg);}
+
+/* Responsive : On cache ou on réduit sur mobile */
+@media (max-width: 768px) {
+  .decor-layer { display: none; }
+}
+
+/* ===== TITLE ===== */
+
+.title {
+    font-family: Helvetica, sans-serif;
+  font-size: 60px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  position: relative;
+  letter-spacing: -5px;
+}
+
+.title span {
+  display: inline-block;
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+.title span:hover {
+  font-weight: 1000;
+  transform: translateY(-8px);
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+.alt {
+    font-family: "Jacquarda Bastarda 9", serif;
+}
+
+.subtitle {
+    letter-spacing: -1px;
+  margin-top: -10px;
+  font-size: 18px;
+  font-weight: normal;
+  text-align: end;
+}
+
+/* ===== PROJECTS ===== */
+
+.projects {
+  margin-top: 80px;
+  width: 70%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.column {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 22px;
+}
+
+a {
+  text-decoration: none;
+  color: #2f3bbd;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.projects a {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+  color: inherit;
+}
+
+.projects a::before {
+  content: ""; /* On laisse vide car on utilise un background-image */
+  position: absolute;
+  left: -35px; /* Ajuste selon la taille de ton icône */
+  top: 50%;
+  transform: translateY(-50%) translateX(-10px); /* Centré verticalement */
+  width: 24px;  /* Largeur de ton icône */
+  height: 24px; /* Hauteur de ton icône */
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+/* Effet au survol */
+.projects a:hover {
+  padding-left: 40px; 
+}
+
+.projects a:hover::before {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.landmark::before { background-image: url('images accueil/landmark.png'); }
+.dogliday::before { background-image: url('images accueil/dogliday.png'); }
+.kmk::before { background-image: url('images accueil/kmk.png'); }
+.nix::before { background-image: url('images accueil/nix.png'); }
+.maestro::before { background-image: url('images accueil/maestro.png'); }
+
+/* Overlay de fond */
+.overlay {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Fond sombre léger */
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+/* La fenêtre (Modale) */
+.modal {
+    width: 90%;
+    max-width: 700px;
+    background: #fff;
+    border: 2px solid #000;
+    box-shadow: 10px 10px 0px #4855e0; /* Ombre décalée rétro */
+    overflow: hidden;
+    animation: openModal 0.2s ease-out;
+}
+
+@keyframes openModal {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Barre de titre (image 2) */
+.modal-header {
+    background: #1a36b5; /* Bleu intense */
+    color: white;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Contenu intérieur */
+.modal-content {
+    padding: 25px;
+    color: #000;
+}
+
+.modal-intro h2 { font-size: 2.5rem; color: #4855e0; margin: 0; letter-spacing: -2px;}
+.modal-intro h3 { font-size: 0.9rem; text-transform: uppercase; margin-bottom: 20px; opacity: 0.7; }
+
+/* Grid d'infos */
+.info-grid { display: flex; gap: 10px; margin-bottom: 20px; }
+.info-box { 
+    flex: 1; 
+    border: 1px solid #4855e0; 
+    padding: 10px; 
+    background: #f4f4f4; 
+}
+.info-box .label { display: block; font-size: 10px; color: #4855e0; font-weight: bold; }
+.info-box .value { font-size: 13px; font-weight: bold; }
+
+/* Tags */
+.tag-container { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+.tag { border: 1px solid #000; padding: 3px 10px; font-size: 11px; background: #fff; }
+
+/* Layout principal */
+.main-content { display: flex; gap: 20px; }
+.modal-visual { flex: 1.2;}
+#modal-img {background-size: cover; width: 100%; height: 5em; object-fit: cover; background-position: center;}
+.modal-text { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+
+.view-more-btn {
+    background: #4855e0;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #000;
+    transition: 0.2s;
+}
+
+.view-more-btn:hover { background: #000; }
+
+.project-header {
+  width: 100%;
+  padding: 20px 5%;
+  background: white;
+  font-family: Arial, sans-serif; /* Pour le côté propre UI */
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+/* Style du Logo */
+.logo {
+  text-decoration: none;
+  color: #1a36b5;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-main {
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: -1px;
+}
+
+.logo-sub {
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin-top: -5px;
+  align-self: flex-end;
+}
+
+/* Navigation */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1a36b5;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Bouton Contact style Image 2/3 */
+.contact-btn {
+  background: #1a36b5 !important;
+  color: white !important;
+  padding: 10px 20px;
+  border: 1px solid #1a36b5;
+  transition: all 0.2s;
+}
+
+.contact-btn:hover {
+  background: white !important;
+  color: #1a36b5 !important;
+}
+
+.next-btn {
+  background: #1a36b5 !important;
+  color: white !important;
+  padding: 20px 40px;
+  border: 1px solid #1a36b5;
+  transition: all 0.2s;
+  position: absolute;
+  right: 5%;
+  margin: 40px 0;
+}
+
+.next-btn:hover {
+  background: white !important;
+  color: #1a36b5 !important;
+}
+
+/* Breadcrumb style Image 3 */
+.breadcrumb {
+  font-size: 0.95rem;
+  color: #1a36b5;
+  margin-top: 20px;
+}
+
+.path {
+  opacity: 0.8;
+}
+
+.current-page {
+  font-weight: bold;
+}
+
+/* Optionnel : La flèche du dropdown */
+.arrow {
+  font-size: 0.7rem;
+  margin-left: 5px;
+}
+
+.project-page {
+  padding: 20px 5%;
+}
+
+/* Container des encarts */
+.spec-grid {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+/* Style de chaque boîte */
+.spec-box {
+    flex: 1;
+    border: 1px solid #2f3bbd; /* Ton bleu */
+    padding: 12px;
+    background: #f9f9f9;
+    transition: transform 0.2s ease;
+}
+
+.spec-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 4px 0px #2f3bbd;
+}
+
+/* Libellé en haut de la boîte (en gras et bleu) */
+.spec-label {
+    display: block;
+    font-weight: bold;
+    color: #2f3bbd;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #2f3bbd;
+    padding-bottom: 4px;
+}
+
+/* Texte à l'intérieur de la boîte */
+.spec-box p {
+    margin: 0; /* Reset du margin pour que ça tienne bien */
+}
+
+/* Style de chaque boîte */
+.spec-box2 {
+    flex: 1;
+    border: 1px solid #2f3bbd; /* Ton bleu */
+    padding: 12px;
+    background: #00000079;
+    transition: transform 0.2s ease;
+}
+
+.spec-box2:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 4px 0px #2f3bbd;
+}
+
+/* Libellé en haut de la boîte (en gras et bleu) */
+.spec-label2 {
+    display: block;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #5760ca;
+    padding-bottom: 4px;
+}
+
+/* Texte à l'intérieur de la boîte */
+.spec-box2 p {
+    margin: 0; /* Reset du margin pour que ça tienne bien */
+    color: rgb(230, 230, 230);
+}
+
+/* Responsive : On les empile sur mobile pour que ça reste lisible */
+@media (max-width: 600px) {
+    .spec-grid {
+        flex-direction: column;
+    }
+}
+
+.image {
+  border: 1px solid #2f3bbd;
+}
+
+.project-title {
+  padding: 5%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.about-section {
+    width: 100%;
+    margin-top: 100px;
+    padding: 100px 5%; /* Un peu de padding pour laisser respirer */
+    position: relative; /* Indispensable pour placer le bandeau bleu */
+    display: flex;
+    justify-content: center;
+    overflow: hidden; /* Empêche les débordements */
+}
+
+.about-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2; /* Devant le bandeau bleu */
+}
+
+.about-text h1 {
+    font-size: 48px;
+    color: #1a36b5; /* Bleu foncé identique au logo */
+    margin-bottom: 10px;
+}
+
+b {
+  color: #1a36b5;
+}
+
+.about-image-container {
+    position: relative;
+    background-color: white;
+    line-height: 0;
+}
+
+.about-portrait {
+    width: 250px; /* Ajustez la taille selon vos besoins */
+    height: auto;
+    display: block;
+}
+
+/* Responsive : On empile les éléments sur mobile */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-image-container {
+        margin-top: 30px;
+    }
+}
+
+.full-width-gallery {
+    margin: 20px 0;
+    display: flex;
+    width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: stretch; /* Force les colonnes à avoir la même hauteur */
+}
+
+.full-width-gallery-gap {
+    margin: 20px 0;
+    display: flex;
+    width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 5%;
+    align-items: stretch; /* Force les colonnes à avoir la même hauteur */
+}
+
+.gallery-item {
+    flex: 1 1 auto;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Empile l'image et la légende verticalement */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 35vw; /* On garde la hauteur proportionnelle pour l'image */
+    display: block;
+    object-fit: cover;
+}
+
+.gallery-item figcaption {
+    background-color: #2f3bbd; /* Ton bleu signature */
+    color: white;
+    padding: 10px 15px;
+    font-size: 0.85rem;
+    font-family: Helvetica, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Optionnel : Pour que les images aient la même hauteur si elles sont différentes */
+.retro-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #2f3bbd; /* Ton bleu signature */
+    margin: 20px 0;
+    background-color: #ffffff;
+}
+
+.retro-table th {
+    background-color: #2f3bbd;
+    color: #ffffff;
+    padding: 12px;
+    font-family: Helvetica, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid #2f3bbd;
+}
+
+.retro-table td {
+    border: 1px solid #2f3bbd;
+    padding: 20px;
+    vertical-align: top;
+    color: #000000;
+}
+
+.retro-table ul {
+    list-style-type: none; /* Pas de puces pour un look plus "liste technique" */
+    padding: 0;
+    margin: 0;
+}
+
+.retro-table li {
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    position: relative;
+    padding-left: 15px;
+}
+
+/* Petit tiret bleu devant chaque item */
+.retro-table li::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+    color: #2f3bbd;
+    font-weight: bold;
+}
+
+.analysis-impact-section {
+    width: 100%;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.impact-container {
+    width: 90%;
+    max-width: 1100px;
+    background-color: #ffffff;
+    padding: 60px 0;
+    position: relative;
+    /* CSS Grid pour placer la stat, la barre et la citation */
+    display: grid;
+    grid-template-columns: 1fr 2px 2fr; /* 1 part / 2px / 2 parts */
+    align-items: center; /* Centrage vertical */
+}
+
+/* 1. La Statistique (Gauche) */
+.impact-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Aligné à droite contre la barre */
+    padding-right: 50px;
+    text-align: right;
+}
+
+.stat-number {
+    font-size: 8rem; /* Très gros pour l'impact */
+    font-weight: 900;
+    color: #1a36b5; /* Bleu intense */
+    line-height: 0.8;
+    letter-spacing: -5px;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: #1a36b5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+/* 2. La Barre Verticale (Centre) */
+.vertical-divider {
+    height: 100%; /* S'adapte à la hauteur du conteneur */
+    background-color: #d6dbf5; /* Bleu très clair */
+}
+
+/* 3. Photo et Citation (Droite) */
+.impact-testimonial {
+    padding-left: 50px;
+}
+
+.testimonial-content {
+    display: flex;
+    align-items: center; /* Aligne la photo et le texte verticalement */
+    gap: 30px; /* Espace entre photo et texte */
+}
+
+.quote {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #000;
+    margin: 0;
+    font-style: italic;
+}
+
+.quote cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #1a36b5;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .impact-container {
+        grid-template-columns: 1fr; /* On passe sur une seule colonne */
+        text-align: center;
+        padding: 40px;
+    }
+
+    .impact-stat {
+        align-items: center;
+        padding-right: 0;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .vertical-divider {
+        width: 100%;
+        height: 2px; /* La barre devient horizontale */
+        margin-bottom: 30px;
+    }
+
+    .impact-testimonial {
+        padding-left: 0;
+    }
+
+    .testimonial-content {
+        flex-direction: column; /* Empile photo et texte */
+        text-align: center;
+    }
+}
+
+.project-sidebar {
+    position: sticky;
+    top: 50px;
+    float: left;
+    width: 200px;
+    margin-right: 40px;
+    z-index: 100;
+    
+    /* Le cadre blanc */
+    background: #ffffff83;
+    border: 2px solid #2f3bbd; /* Ton bleu */
+    padding: 15px;
+}
+
+.project-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.project-sidebar li {
+    margin-bottom: 10px;
+}
+
+.project-sidebar a {
+    display: block;
+    text-decoration: none;
+    color: #2f3bbd;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 0.7rem;
+    padding: 5px 8px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+/* État quand on survole ou quand la section est active */
+.project-sidebar a.active, 
+.project-sidebar a:hover {
+    background-color: #2f3bbd;
+    color: #ffffff;
+    border: 1px solid #2f3bbd;
+}
+
+/* On cache le sommaire sur mobile pour ne pas encombrer l'écran */
+@media (max-width: 1024px) {
+    .project-sidebar {
+        display: none;
+    }
+}
+
+.contact-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.btn-contact {
+    display: inline-block;
+    padding: 12px 25px;
+    border: 2px solid #2f3bbd; /* Ton bleu */
+    color: #2f3bbd;
+    text-decoration: none;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+    background: transparent;
+}
+
+.btn-contact:hover {
+    background-color: #2f3bbd;
+    color: #ffffff;
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px rgba(47, 59, 189, 0.2);
+}
+
+/* Variante pour le bouton CV pour le faire ressortir */
+.btn-alt {
+    background-color: #f0f2ff;
+}
+
+.comparison-container {
+    width: 100%;
+    max-width: 600px; /* À ajuster selon tes besoins */
+    position: relative;
+}
+
+.comparison-slider {
+    position: relative;
+    width: 100%;
+    height: 450px; /* Doit correspondre à la hauteur de tes images */
+    overflow: hidden;
+    border: 2px solid #2f3bbd;
+}
+
+.comparison-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.image-before-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%; /* Valeur initiale */
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.image-before {
+    width: 100%;
+    min-width: 600px; /* même valeur que max-width du .comparison-container */
+    max-width: none !important;
+}
+
+.slider-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    appearance: none;
+    cursor: ew-resize;
+    z-index: 10;
+}
+
+.slider-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: #2f3bbd;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.slider-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: #2f3bbd;
+    border-radius: 50%;
+    z-index: 6;
+    pointer-events: none;
+}
+
+.project-comparison-wrapper {
+    display: flex;
+    align-items: center; /* Centre le texte verticalement par rapport au slider */
+    gap: 40px; /* Espace entre le slider et le texte */
+    margin: 40px 0;
+}
+
+/* Dropdown projets */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  background: white;
+  border: 1px solid #2f3bbd;
+  min-width: 180px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+.dropdown-menu a {
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #1a36b5;
+  border-bottom: 1px solid #e8eaf6;
+  transition: background 0.15s;
+}
+
+.dropdown-menu a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu a:hover {
+  background: #f0f2ff;
+  text-decoration: none;
+}
+
+.dropdown-menu a.active-project {
+  background: #2f3bbd;
+  color: white;
+}
+
+.dropdown-menu a.active-project:hover {
+  background: #1a36b5;
+}
+
+/* Overlay contact */
+.contact-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-overlay.open {
+  display: flex;
+}
+
+.contact-modal {
+  background: white;
+  border: 2px solid #2f3bbd;
+  padding: 40px;
+  width: 90%;
+  max-width: 420px;
+  position: relative;
+  box-shadow: 8px 8px 0px #2f3bbd;
+}
+
+.contact-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #2f3bbd;
+}
+
+.contact-modal h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #2f3bbd;
+  letter-spacing: -2px;
+  margin-bottom: 4px;
+}
+
+.contact-sub {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 30px;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border: 1px solid #2f3bbd;
+  color: #1a36b5;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  background: #2f3bbd;
+  color: white;
+  text-decoration: none;
+}
+
+.contact-icon {
+  width: 28px;
+  height: 28px;
+  background: #f0f2ff;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 900;
+  color: #2f3bbd;
+  flex-shrink: 0;
+}
+
+.contact-link:hover .contact-icon {
+  background: white;
+  color: #2f3bbd;
+}
