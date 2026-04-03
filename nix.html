@@ -18,15 +18,41 @@
       <span class="logo-sub">2026 PORTFOLIO</span>
     </a>
     <nav class="nav-links">
-      <div class="dropdown"><a href="#">PROJECTS <span class="arrow">∨</span></a></div>
-      <a href="#about">ABOUT ME</a>
-      <a href="javascript:void(0)" class="contact-btn" onclick="openContact()">CONTACT ME</a>
-    </nav>
+  <div class="dropdown" id="projectDropdown">
+    <a href="#" onclick="toggleDropdown(event)">PROJECTS <span class="arrow">▼</span></a>
+    <div class="dropdown-menu" id="dropdownMenu">
+        <a href="maestro.html">Maestro</a>
+      <a href="landmark.html">Landmark</a>
+      <a href="dogliday.html">Dogliday</a>
+      <a href="nix.html" class="active-project">NIX</a>
+      <a href="kmk.html">KissMarryKill</a>
+    </div>
   </div>
-  <div class="breadcrumb">
-    <span class="path"><a href="index.html">Helene_Lecomte</a> / Projects / </span>
-    <span class="current-page">NIX</span>
+  <a href="javascript:void(0)" class="contact-btn" onclick="openContact()">CONTACT ME</a>
+</nav>
+
+<!-- Overlay Contact -->
+<div class="contact-overlay" id="contactOverlay" onclick="closeContact(event)">
+  <div class="contact-modal">
+    <button class="contact-close" onclick="closeContact()">✕</button>
+    <h2>Let's connect ;)</h2>
+    <p class="contact-sub">Hélène Lecomte — UX/UI Designer</p>
+    <div class="contact-links">
+      <a href="mailto:helenelecomte14@gmail.com" class="contact-link">
+        <span class="contact-icon">✉</span>
+        <span>helenelecomte14@gmail.com</span>
+      </a>
+      <a href="https://www.linkedin.com/in/helene-lecomte-ux/" target="_blank" class="contact-link">
+        <span class="contact-icon">in</span>
+        <span>LinkedIn</span>
+      </a>
+      <a href="cv.pdf" target="_blank" class="contact-link">
+        <span class="contact-icon">✽</span>
+        <span>Curriculum Vitae</span>
+      </a>
+    </div>
   </div>
+</div>
 </header>
 
 <div class="project-title" style="background-image: url('images/nix-preview.png');">
@@ -99,5 +125,6 @@
         <a href="landmark.html" class="next-btn">NEXT PROJECT    →</a>
     </main>
 </div>
+<script src="script.js"></script>
 </body>
 </html>

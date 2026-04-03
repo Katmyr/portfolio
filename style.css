@@ -295,6 +295,7 @@ a:hover {
 /* Grid d'infos */
 .info-grid { display: flex; gap: 10px; margin-bottom: 20px; }
 .info-box { 
+  margin-top: 20px;
     flex: 1; 
     border: 1px solid #4855e0; 
     padding: 10px; 
@@ -312,6 +313,9 @@ a:hover {
 .modal-visual { flex: 1.2;}
 #modal-img {background-size: cover; width: 100%; height: 5em; object-fit: cover; background-position: center;}
 .modal-text { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+#modal-desc {
+  margin-bottom: 8px;
+}
 
 .view-more-btn {
     background: #4855e0;
@@ -775,57 +779,6 @@ b {
     }
 }
 
-.project-sidebar {
-    position: sticky;
-    top: 50px;
-    float: left;
-    width: 200px;
-    margin-right: 40px;
-    z-index: 100;
-    
-    /* Le cadre blanc */
-    background: #ffffff83;
-    border: 2px solid #2f3bbd; /* Ton bleu */
-    padding: 15px;
-}
-
-.project-sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.project-sidebar li {
-    margin-bottom: 10px;
-}
-
-.project-sidebar a {
-    display: block;
-    text-decoration: none;
-    color: #2f3bbd;
-    font-family: Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 0.7rem;
-    padding: 5px 8px;
-    border: 1px solid transparent;
-    transition: all 0.2s ease;
-}
-
-/* État quand on survole ou quand la section est active */
-.project-sidebar a.active, 
-.project-sidebar a:hover {
-    background-color: #2f3bbd;
-    color: #ffffff;
-    border: 1px solid #2f3bbd;
-}
-
-/* On cache le sommaire sur mobile pour ne pas encombrer l'écran */
-@media (max-width: 1024px) {
-    .project-sidebar {
-        display: none;
-    }
-}
-
 .contact-actions {
     display: flex;
     gap: 15px;
@@ -956,8 +909,8 @@ b {
   flex-direction: column;
 }
 
-.dropdown:hover .dropdown-menu {
-  display: flex;
+.dropdown-menu {
+  display: none;
 }
 
 .dropdown-menu a {
@@ -1081,40 +1034,26 @@ b {
   color: #2f3bbd;
 }
 
-/* ===== FOOTER ===== */
-
-.site-footer {
-  width: 100%;
-  border-top: 1px solid #2f3bbd33;
-  padding: 20px 5%;
-  margin-top: 80px;
-  display: flex;
-  justify-content: center;
+.works-label {
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: -60px;
+  margin-top: 60px;
 }
 
-.footer-inner {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.about-contact {
+  display: inline-block;
+  margin-top: 30px;
+}
+
+.handmade-note {
+  margin-top: 20px;
   font-size: 0.75rem;
   font-weight: bold;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #2f3bbd;
-  opacity: 0.6;
-}
-
-.footer-sep {
-  opacity: 0.4;
-}
-
-.footer-link {
-  color: #2f3bbd;
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-
-.footer-link:hover {
-  opacity: 1;
-  text-decoration: underline;
+  color: #2f3bbd !important;
+  opacity: 0.5;
 }

@@ -143,3 +143,36 @@ function closeContact(e) {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeContact();
 });
+
+// Dropdown
+function toggleDropdown(e) {
+  e.preventDefault();
+  const menu = document.getElementById('dropdownMenu');
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+}
+
+document.addEventListener('click', function(e) {
+  const dropdown = document.getElementById('projectDropdown');
+  if (dropdown && !dropdown.contains(e.target)) {
+    document.getElementById('dropdownMenu').style.display = 'none';
+  }
+});
+
+// Sommaire actif au scroll
+const sections = document.querySelectorAll('section[id], div[id]');
+const navLinks = document.querySelectorAll('.project-sidebar a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    if (window.scrollY >= section.offsetTop - 100) {
+      current = section.getAttribute('id');
+    }
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+});
