@@ -176,3 +176,14 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
+// Loader
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  if (loader) {
+    setTimeout(() => {
+      loader.classList.add('hidden');
+      setTimeout(() => loader.remove(), 400);
+    }, 800); // attend que la barre soit finie
+  }
+});

@@ -11,6 +11,59 @@ body {
   overflow-x: hidden;
 }
 
+/* ===== LOADER ===== */
+
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  transition: opacity 0.4s ease;
+}
+
+#loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader-name {
+  font-family: Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  letter-spacing: -2px;
+  color: #2f3bbd;
+}
+
+.loader-bar-track {
+  width: 200px;
+  height: 2px;
+  background: #e0e3f8;
+}
+
+.loader-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: #2f3bbd;
+  animation: load 1s ease forwards;
+}
+
+.loader-label {
+  font-family: monospace;
+  font-size: 11px;
+  color: #2f3bbd;
+  opacity: 0.5;
+  letter-spacing: 2px;
+}
+
+@keyframes load {
+  to { width: 100%; }
+}
+
 p {
   color: #1f1f1f;
 }
