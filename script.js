@@ -187,3 +187,95 @@ window.addEventListener('load', () => {
     }, 800); // attend que la barre soit finie
   }
 });
+
+// Gestion générique du player vidéo (fonctionne sur toutes les pages)
+const mainVideo = document.getElementById('doglidayVideo') || document.getElementById('landmarkVideo');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const progressFill = document.getElementById('progressFill');
+const progressContainer = document.getElementById('progressContainer');
+const fullBtn = document.getElementById('fullBtn');
+const videoOverlay = document.getElementById('videoOverlay');
+const overlayVideo = document.getElementById('overlayVideo');
+
+if (mainVideo && playPauseBtn) {
+    playPauseBtn.addEventListener('click', () => {
+        if (mainVideo.paused) {
+            mainVideo.play();
+            playPauseBtn.innerText = 'PAUSE';
+        } else {
+            mainVideo.pause();
+            playPauseBtn.innerText = 'PLAY';
+        }
+    });
+
+    if (progressContainer) {
+        progressContainer.addEventListener('click', (e) => {
+            const rect = progressContainer.getBoundingClientRect();
+            const ratio = (e.clientX - rect.left) / rect.width;
+            mainVideo.currentTime = ratio * mainVideo.duration;
+        });
+    }
+
+    mainVideo.addEventListener('timeupdate', () => {
+        if (progressFill && mainVideo.duration) {
+            progressFill.style.width = (mainVideo.currentTime / mainVideo.duration * 100) + '%';
+        }
+    });
+
+    mainVideo.addEventListener('ended', () => {
+        playPauseBtn.innerText = 'PLAY';
+    });
+}
+
+if (fullBtn && videoOverlay && overlayVideo) {
+    fullBtn.addEventListener('click', () => {
+        if (mainVideo) mainVideo.pause();
+        if (playPauseBtn) playPauseBtn.innerText = 'PLAY';
+        videoOverlay.classList.add('open');
+        overlayVideo.play();
+    });
+}
+
+function closeVideoOverlay(event) {
+    if (event.target.id === 'videoOverlay' || event.target.classList.contains('video-overlay-close')) {
+        videoOverlay.classList.remove('open');
+        overlayVideo.pause();
+        overlayVideo.currentTime = 0;
+    }
+}
+
+const muteBtn = document.getElementById('muteBtn');
+if (muteBtn && mainVideo) {
+    muteBtn.addEventListener('click', () => {
+        mainVideo.muted = !mainVideo.muted;
+        muteBtn.innerText = mainVideo.muted ? 'UNMUTE' : 'MUTE';
+    });
+}
+// Fonction pour gérer plusieurs carrousels sur la même page
+function moveSlide(carouselId, direction) {
+    const carouselSlides = document.getElementById(carouselId);
+    const images = carouselSlides.getElementsByTagName('img');
+    let activeIndex = -1;
+
+    // 1. Trouve l'image active actuelle
+    for (let i = 0; i < images.length; i++) {
+        if (images[i].classList.contains('active')) {
+            activeIndex = i;
+            break;
+        }
+    }
+
+    // 2. Retire la classe active
+    images[activeIndex].classList.remove('active');
+
+    // 3. Calcule le nouvel index (avec gestion de la boucle)
+    let newIndex = activeIndex + direction;
+    if (newIndex >= images.length) {
+        newIndex = 0; // Revient au début
+    } else if (newIndex < 0) {
+        newIndex = images.length - 1; // Va à la fin
+    }
+
+    // 4. Ajoute la classe active à la nouvelle image
+    images[newIndex].classList.add('active');
+}
