@@ -10,6 +10,14 @@
 <title>Hélène Lecomte – UX Portfolio</title>
 </head>
 <body>
+    <div id="mobile-warning">
+  <div class="warning-content">
+    <div class="warning-icon">💻</div>
+    <h1>Best experienced on desktop</h1>
+    <p>This portfolio features complex layouts and interactive retro elements designed for larger screens.</p>
+    <p class="handmade-note">Please switch to a computer for the full experience.</p>
+  </div>
+</div>
      <div id="loader">
   <div class="loader-name"><span style="font-family:'Jacquarda Bastarda 9',serif">H</span>ELENE_LECOMTE</div>
   <div class="loader-bar-track">
@@ -279,20 +287,22 @@
             <p style="font-size: 0.7rem; padding: 5px; text-align: center; font-weight: bold; text-transform: uppercase; opacity: 0.6;">Work in progress — Bandlab</p>
         </div>
 
-        <div class="custom-player-container" style="flex: 1; min-width: 0;">
-            <video id="doglidayVideo" class="video-frame" preload="metadata" style="width: 100%; height: auto; display: block; background: #000;">
-                <source src="images/maestro-pub.mp4#t=0.001" type="video/mp4">
-            </video>
-            <div class="player-controls">
-                <button id="playPauseBtn" class="player-btn">PLAY</button>
-                <div id="progressContainer" class="progress-container">
-                    <div id="progressFill" class="progress-fill"></div>
-                </div>
-                <button id="muteBtn" class="player-btn">MUTE</button>
-                <button id="fullBtn" class="player-btn">FULL</button>
-            </div>
-        </div>
+        
     </div>
+
+    <div class="custom-player-container" style="width: 60%; max-width: 100%; min-width: 0; margin: 20px auto 0 auto;">
+    <video id="doglidayVideo" class="video-frame" preload="metadata" style="width: 100%; height: auto; display: block; background: #000;">
+        <source src="images/maestro-pub.mp4#t=0.001" type="video/mp4">
+    </video>
+    <div class="player-controls">
+        <button id="playPauseBtn" class="player-btn">PLAY</button>
+        <div id="progressContainer" class="progress-container">
+            <div id="progressFill" class="progress-fill"></div>
+        </div>
+        <button id="muteBtn" class="player-btn">MUTE</button>
+        <button id="fullBtn" class="player-btn">FULL</button>
+    </div>
+</div>
 
     <div id="videoOverlay" class="video-overlay" onclick="closeVideoOverlay(event)">
         <div class="video-overlay-content">
