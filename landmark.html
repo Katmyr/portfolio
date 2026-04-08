@@ -224,45 +224,52 @@
                 <h2>A Phygital Community Hub</h2>
                 <p>Our vision is a <strong>phygital solution</strong> that transforms the point of sale. By integrating interactive checkpoints and collective missions, shopping becomes a treasure hunt that rewards eco-responsible or community engagement rather than just the total on the receipt.</p>
             </div>
-            <div class="image">
-                <img src="images/landmark-ux.png" alt="Landmark Phygital Interfaces">
-            </div>
+            <div class="image" style="margin-top: 20px; max-width: 100%; flex-shrink: 0;">
+        <img src="images/landmark-affiche.png" alt="Landmark Phygital Interfaces" style="width: 100%; display: block;">
+    </div>
         </section>
+        <br>
 
-        <section class="project-section-vertical">
-            <div class="text-block" style="margin-bottom: 40px; margin-top: 20px">
-                <h2>Promotional Motion Render</h2>
+        <section class="project-section">
+    <div class="text-block">
+        <h2>Promotional Motion Render</h2>
                 <p>The final stage involved translating this "Explore-to-Earn" loop into a high-energy motion design, showcasing how Landmark creates a lasting bond between the local store and its community.</p>
+    </div>
+    
+    <div class="project-comparison-wrapper">
+        <div style="flex: 1; min-width: 0; display: flex; flex-direction: column;">
+            <div class="image" style="flex: 1;">
+                <img src="images/landmark-aftereffects.png" alt="After Effects Workspace" style="width: 100%; height: 100%; object-fit: cover; display: block;">
             </div>
-            <div class="motion-grid" style="justify-content: center; display: flex; gap: 20px;">
-                <div class="custom-player-container" style="flex: 1; max-width: 600px; margin: 0 auto;">
-                    <video id="landmarkVideo" class="video-frame" preload="metadata">
-                        <source src="images/landmark-pub.mp4#t=0.001" type="video/mp4">
-                    </video>
-                    <div class="player-controls">
-                        <button id="playPauseBtn" class="player-btn">PLAY</button>
-                        <div id="progressContainer" class="progress-container">
-                            <div id="progressFill" class="progress-fill"></div>
-                        </div>
-                        <button id="muteBtn" class="player-btn">MUTE</button>
-                        <button id="fullBtn" class="player-btn">FULL</button>
-                    </div>
+            <p style="font-size: 0.7rem; padding: 5px; text-align: center; font-weight: bold; text-transform: uppercase; opacity: 0.6;">Work in progress — After Effects</p>
+        </div>
+
+        <div class="custom-player-container" style="flex: 1; min-width: 0;">
+            <video id="doglidayVideo" class="video-frame" preload="metadata" style="width: 100%; height: auto; display: block; background: #000;">
+                <source src="images/landmark-pub.mp4#t=0.001" type="video/mp4">
+            </video>
+            <div class="player-controls">
+                <button id="playPauseBtn" class="player-btn">PLAY</button>
+                <div id="progressContainer" class="progress-container">
+                    <div id="progressFill" class="progress-fill"></div>
                 </div>
-            </div>
-        </section>
-
-        <div id="videoOverlay" class="video-overlay" onclick="closeVideoOverlay(event)">
-            <div class="video-overlay-content">
-                <button class="video-overlay-close" onclick="closeVideoOverlay(event)">✕ CLOSE</button>
-                <video id="overlayVideo" controls>
-                    <source src="images/landmark-pub.mp4" type="video/mp4">
-                </video>
+                <button id="muteBtn" class="player-btn">MUTE</button>
+                <button id="fullBtn" class="player-btn">FULL</button>
             </div>
         </div>
+    </div>
 
-        <div class="footer-nav" style="margin-top: 80px;">
-            <a href="dogliday.html" class="contact-btn">NEXT PROJECT</a>
+    <div id="videoOverlay" class="video-overlay" onclick="closeVideoOverlay(event)">
+        <div class="video-overlay-content">
+            <button class="video-overlay-close" onclick="closeVideoOverlay(event)">✕ CLOSE</button>
+            <video id="overlayVideo" controls>
+                <source src="images/landmark-pub.mp4" type="video/mp4">
+            </video>
         </div>
+    </div>
+</section>
+
+        <a href="dogliday.html" class="next-btn">NEXT PROJECT    →</a>
     </main>
 </div>
 

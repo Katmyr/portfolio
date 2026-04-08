@@ -211,7 +211,7 @@
     <section class="project-section full-width">
         <h2>Research & Ideation</h2>
                 <p>I placed all of these features on the two devices : the speaker and the tablet (which is part of the speaker but can be detached).</p>
- <section class="full-width-gallery">
+ <section class="full-width-gallery ">
     <figure class="gallery-item">
         <img src="images/maestro-speaker.png" alt="Device's front view">
     </figure>
@@ -219,13 +219,15 @@
         <img src="images/maestro-tablet.png" alt="Tablet's front view">
     </figure>
 </section>
-<section class="full-width-gallery">
+    <h2>Experience Map</h2>
+                <p>To visualise the experiences of the various stakeholders in my product, I created a cross-functional experience map illustrating the different interactions between the musician, their host and the machine.</p>
+<section class="full-width-gallery nix-gallery">
     <figure class="gallery-item">
         <img src="images/maestro-uxmap.png" alt="Device's front view">
     </figure>
 </section>
         <p>I developed a CMF (Colors, Materials, Finishes) mixing reassuring analog codes with modern ergonomics. These concepts served as the foundation for a rapid ideation phase on Vizcom, allowing me to explore several aesthetic directions while maintaining user interface consistency.</p>
-        <section class="full-width-gallery-gap">
+        <section class="full-width-gallery-gap nix-gallery">
     <figure class="gallery-item">
         <img src="images/maestro-cmf.png" alt="CMF">
         <figcaption>Colors, Materials and Finishes</figcaption>
@@ -241,7 +243,7 @@
             <h2>3D Process</h2>
             <p>While Vizcom was a powerful lever for quickly exploring aesthetic intentions, I chose to switch to Blender for the final phase. This transition to traditional 3D modeling was essential to regain total control over ergonomic precision and technical detail fidelity that AI could not yet formalize with accuracy. This project was also an opportunity to deepen my modeling skills to ensure a high-fidelity prototype, true to my initial vision.</p>
         </div>
-        <section class="full-width-gallery">
+        <section class="full-width-gallery nix-gallery">
     <figure class="gallery-item">
         <img src="images/maestro-1.png" alt="modeling">
         <figcaption>Modeling</figcaption>
@@ -257,10 +259,50 @@
 </section>
     </section>
 
-    <h2>Final product</h2>
-    <div style="background:#eee; width:100%; height:200px; display:flex; align-items:center; justify-content:center; border:1px solid #1a36b5;">
-                    [MAESTRO PUB AFTER EFFECTS TAH LES FOUS]
+    <section class="project-section">
+    <div class="text-block">
+        <h2>Promotional Motion Render</h2>
+                <p>To showcase all of Maestro's features, I made a promotional video using After Effects. I also used Bandlab to mimic different audio settings at the end of the video.</p>
+    </div>
+    
+    <div class="project-comparison-wrapper">
+        <div style="flex: 1; min-width: 0; display: flex; flex-direction: column;">
+            <div class="image" style="flex: 1;">
+                <img src="images/maestro-aftereffects.png" alt="After Effects Workspace" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
+            <p style="font-size: 0.7rem; padding: 5px; text-align: center; font-weight: bold; text-transform: uppercase; opacity: 0.6;">Work in progress — After Effects</p>
+        </div>
+        <div style="flex: 1; min-width: 0; display: flex; flex-direction: column;">
+            <div class="image" style="flex: 1;">
+                <img src="images/maestro-bandlab.png" alt="Bandlab Workspace" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
+            <p style="font-size: 0.7rem; padding: 5px; text-align: center; font-weight: bold; text-transform: uppercase; opacity: 0.6;">Work in progress — Bandlab</p>
+        </div>
+
+        <div class="custom-player-container" style="flex: 1; min-width: 0;">
+            <video id="doglidayVideo" class="video-frame" preload="metadata" style="width: 100%; height: auto; display: block; background: #000;">
+                <source src="images/maestro-pub.mp4#t=0.001" type="video/mp4">
+            </video>
+            <div class="player-controls">
+                <button id="playPauseBtn" class="player-btn">PLAY</button>
+                <div id="progressContainer" class="progress-container">
+                    <div id="progressFill" class="progress-fill"></div>
                 </div>
+                <button id="muteBtn" class="player-btn">MUTE</button>
+                <button id="fullBtn" class="player-btn">FULL</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="videoOverlay" class="video-overlay" onclick="closeVideoOverlay(event)">
+        <div class="video-overlay-content">
+            <button class="video-overlay-close" onclick="closeVideoOverlay(event)">✕ CLOSE</button>
+            <video id="overlayVideo" controls>
+                <source src="images/maestro-pub.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</section>
 
     <a href="landmark.html" class="next-btn">NEXT PROJECT    →</a>
     
